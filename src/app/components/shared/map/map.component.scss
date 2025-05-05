@@ -1,0 +1,89 @@
+@use "src/styles.scss" as *;
+
+::ng-deep {
+  .map-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .gm-style-iw-chr {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .gm-style-iw-d {
+    overflow: hidden !important;
+  }
+}
+
+.color-green {
+  color: $success-color;
+}
+
+.color-red {
+  color: $danger-color;
+}
+
+.map-container {
+  height: calc(100vh - 49px - 2vh);
+  width: 100%;
+  border-radius: 10px;
+}
+
+.info-container {
+  width: 200px;
+  margin-top: 10px;
+  display: flex;
+
+  .img-container {
+    position: relative;
+
+    img {
+      border-radius: 40%;
+    }
+
+    .badge {
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      font-size: 40px;
+      bottom: 40px;
+      right: 20px;
+    }
+  }
+
+  .name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    h2,
+    h5 {
+      font-weight: normal;
+      margin: 0px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    h5 {
+      color: $primary-color;
+    }
+
+    .button-container {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        min-width: unset;
+        height: unset;
+      }
+    }
+  }
+}
+
+// gm-style-iw-chr

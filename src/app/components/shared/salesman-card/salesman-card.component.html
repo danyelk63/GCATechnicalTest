@@ -1,0 +1,25 @@
+<mat-card appearance="outlined" [class.selected]="salesman.id === selectedSalesman()?.id" (click)="selectSalesman()">
+    <mat-card-content>
+        <div class="card-container">
+            <div class="name-container">
+                <h4>{{salesman.name.toUpperCase()}}</h4>
+                <p class="primary-color tiny-text">{{salesman.category}}</p>
+                <br>
+                <p class="primary-color">Longitud = {{salesman.coordinates.longitude}}</p>
+                <p class="primary-color">Latitud = {{salesman.coordinates.latitude}}</p>
+                <p class="primary-color">Altura = {{salesman.coordinates.height}}</p>
+            </div>
+            <div class="photo-container">
+                <div class="vehicle">
+                    <p class="primary-color tiny-text">{{salesman.address}}</p>
+                    <p class="mr-10">{{salesman.vehicle}}</p>
+                    <p class="mr-10" [ngClass]="{'success-color': salesman.isActive, 'danger-color': !salesman.isActive}">{{salesman.status}}</p>
+                </div>
+                <div class="photo">
+                    <img [src]="`photos/${salesman.photo}.jpg`" class="photo-img" alt="Foto del vendedor">
+                    <img [src]="`icons/${salesman.vehicle}.svg`" class="icon" alt="Icono del vehiculo">
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

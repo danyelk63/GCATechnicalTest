@@ -1,59 +1,104 @@
 # GCATechnicalTest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Este proyecto es una aplicación Angular que utiliza Angular Material para el diseño de componentes y @angular/google-map para integrar mapas. Se desarrolló como parte de una prueba técnica y demuestra la implementación de un sistema de gestión de vendedores.
 
-## Development server
+## Tabla de Contenidos
 
-To start a local development server, run:
+- [Visión General](#visión-general)
+- [Instalación](#instalación)
+- [Ejecución del Proyecto](#ejecución-del-proyecto)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Componentes Principales](#componentes-principales)
+- [Recursos Adicionales](#recursos-adicionales)
+- [Licencia](#licencia)
 
+## Visión General
+
+GCATechnicalTest es una aplicación Angular que:
+- Utiliza Angular Material para la interfaz de usuario y estilos.
+- Integra Google Maps mediante `@angular/google-map` para mostrar la ubicación de los vendedores.
+- Implemente múltiples componentes, como la lista y la tarjeta de vendedores, así como una vista de mapa que muestra la posición de cada vendedor con marcadores avanzados.
+- Aplica técnicas de optimización (trackBy en ngFor, ChangeDetection OnPush, etc.) y estilos personalizados con SCSS.
+
+## Instalación
+
+1. **Instalar Angular (v19.2 o superior):**  
+   Asegúrate de tener Angular CLI instalado (recomendamos la versión 19.2 o superior):
+   ```bash
+   npm install -g @angular/cli@19.2
+   ```
+
+2. **Descargar el Proyecto:**  
+   Clona el repositorio o descarga el código fuente:
+   ```bash
+   git clone https://github.com/tu-usuario/GCATechnicalTest.git
+   cd GCATechnicalTest
+   ```
+
+3. **Instalar Dependencias:**
+   ```bash
+   npm install
+   ```
+
+## Ejecución del Proyecto
+
+Para correr el proyecto localmente:
 ```bash
-ng serve
+npm run start
 ```
+Abre tu navegador en la siguiente URL:  
+[http://localhost:4200/home](http://localhost:4200/home)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Estructura del Proyecto
 
-## Code scaffolding
+El proyecto cuenta con la siguiente estructura:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **src/app/components:**  
+  Contiene los componentes principales de la aplicación:
+  - **features/salesman-view:** Componente principal con navegación por pestañas.
+  - **shared/salesman-list:** Lista de vendedores con tarjetas individuales.
+  - **shared/salesman-card:** Tarjeta que muestra información de un vendedor.
+  - **shared/map:** Mapa que muestra la ubicación de los vendedores con marcadores avanzados e info windows.
+  - **shared/under-construction:** Vista sin contenido para mostrar en las tabs vacias.
+  
+- **src/app/services:**  
+  Servicios para la gestión de vendedores y peticiones HTTP.
 
-```bash
-ng generate component component-name
-```
+- **src/styles.scss:**  
+  Archivo global de estilos, donde se definen variables y mixins para la aplicación.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Componentes Principales
 
-```bash
-ng generate --help
-```
+### SalesmanViewComponent
 
-## Building
+- Actúa como contenedor principal de la vista.
+- Gestiona la navegación mediante Angular Router y pestañas (Angular Material Tab Nav Bar).
 
-To build the project run:
+### SalesmanListComponent
 
-```bash
-ng build
-```
+- Muestra una lista de vendedores.
+- Utiliza `*ngFor` con trackBy para optimización en el renderizado.
+- Permite abrir un diálogo para crear o editar vendedores.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### SalesmanCardComponent
 
-## Running unit tests
+- Muestra información detallada de cada vendedor: nombre, categoría, coordenadas, y estado.
+- Aplica estilos dinámicos (por ejemplo, mediante clases CSS para estado seleccionado o hover).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### MapComponent
 
-```bash
-ng test
-```
+- Integra Google Maps para visualizar la ubicación de los vendedores.
+- Usa `MapAdvancedMarker` para cada vendedor y gestiona los markers con @ViewChildren.
+- Abre un `MapInfoWindow` al hacer clic en un marker.
+- Se encarga de centrar el mapa en la ubicación del vendedor seleccionado y gestionar la interacción con los marcadores.
 
-## Running end-to-end tests
+## Recursos Adicionales
 
-For end-to-end (e2e) testing, run:
+- [Angular Documentation](https://angular.io)
+- [Angular Material](https://material.angular.io)
+- [Google Maps for Angular](https://developers.google.com/maps/documentation/javascript/overview)
+- [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli)
 
-```bash
-ng e2e
-```
+## Licencia
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto se distribuye bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

@@ -1,0 +1,52 @@
+@use "src/styles.scss" as *;
+
+.text-container {
+  h2, h5 {
+    margin: 0px;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  h5 {
+    color: $primary-color;
+  }
+
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 49px - 2vh - 40px - 45px - 30px);
+  overflow-y: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  padding-top: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+app-salesman-card {
+  padding: 5px;
+}
+
+// Dialog styles
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.photo-selector {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin: 5px;
+  }
+}

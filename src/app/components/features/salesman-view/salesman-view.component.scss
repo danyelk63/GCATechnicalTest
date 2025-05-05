@@ -1,0 +1,14 @@
+.principal {
+  display: flex;
+  width: 100%;
+
+  .map-container {
+    width: 65%;
+    margin: 1vh;
+  }
+
+  .salesman-container {
+    width: 35%;
+    margin: 1vh;
+  }
+}

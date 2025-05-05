@@ -1,0 +1,110 @@
+<div class="text-container">
+  <h2>lISTADO DE LOCALIZACIONES</h2>
+  <h5>Listado de dispositivos que reportan su porisión</h5>
+</div>
+
+<div class="container">
+  @for (salesman of salesmanList; track salesman.id) {
+    <app-salesman-card [salesman]="salesman"></app-salesman-card>
+  }
+</div>
+
+<div class="button-container">
+  <button mat-flat-button (click)="openDialog()">Nuevo</button>
+</div>
+
+<ng-template #DialogContainer>
+  <h1 mat-dialog-title>Crear nuevo vendedor</h1>
+  <mat-dialog-content>
+    <form [formGroup]="form">
+      <div class="form-grid">
+        <div class="input-container">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" />
+            @if (
+              form.controls["name"].hasError("name") &&
+              !form.controls["name"].hasError("required")
+            ) {
+              <mat-error>Nombre es requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field class="full-width">
+            <mat-label>Cargo</mat-label>
+            <input matInput formControlName="category" placeholder="Ej: CEO" />
+            @if (
+              form.controls["category"].hasError("category") &&
+              !form.controls["category"].hasError("required")
+            ) {
+              <mat-error>Cargo es requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field class="full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="address" />
+            @if (
+              form.controls["address"].hasError("address") &&
+              !form.controls["address"].hasError("required")
+            ) {
+              <mat-error>Dirección es requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field class="full-width">
+            <mat-label>Foto</mat-label>
+            <mat-select formControlName="photo">
+              @for (photo of photoList; track photo) {
+                <mat-option [value]="photo.key">
+                  <div class="photo-selector">
+                    <img
+                      [src]="`photos/${photo.key}.jpg`"
+                      alt="Foto de vendedor"
+                    />
+                    <p>{{ photo.value }}</p>
+                  </div></mat-option
+                >
+              }
+            </mat-select>
+            @if (
+              form.controls["photo"].hasError("photo") &&
+              !form.controls["photo"].hasError("required")
+            ) {
+              <mat-error>Foto es requerida</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field class="full-width">
+            <mat-label>Vehiculo</mat-label>
+            <mat-select formControlName="vehicle">
+              @for (vehicle of vehicleList; track vehicle) {
+                <mat-option [value]="vehicle.key">{{
+                  vehicle.value
+                }}</mat-option>
+              }
+            </mat-select>
+            @if (
+              form.controls["vehicle"].hasError("vehicle") &&
+              !form.controls["vehicle"].hasError("required")
+            ) {
+              <mat-error>Vehiculo es requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="button-container">
+      <button mat-flat-button (click)="onSubmit()">Guardar</button>
+    </div>
+  </mat-dialog-content>
+</ng-template>
