@@ -31,7 +31,7 @@ GCATechnicalTest es una aplicación Angular que:
 2. **Descargar el Proyecto:**  
    Clona el repositorio o descarga el código fuente:
    ```bash
-   git clone https://github.com/tu-usuario/GCATechnicalTest.git
+   git clone https://github.com/danyelk63/GCATechnicalTest.git
    cd GCATechnicalTest
    ```
 
